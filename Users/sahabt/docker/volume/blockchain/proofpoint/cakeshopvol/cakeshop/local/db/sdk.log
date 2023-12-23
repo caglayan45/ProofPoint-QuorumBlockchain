@@ -1,0 +1,45 @@
+/*C1*/SET SCHEMA SYSTEM_LOBS
+INSERT INTO BLOCKS VALUES(0,2147483647,0)
+COMMIT
+/*C2*/SET SCHEMA PUBLIC
+create table BLOCK_TRANSACTIONS (BLOCK_ID varchar(255) not null, transactions varchar(255))
+create table BLOCK_UNCLES (BLOCK_ID varchar(255) not null, uncles varchar(255))
+create table BLOCKS (id varchar(255) not null, difficulty numeric(19,2), extraData varchar(2048), gasLimit numeric(19,2), gasUsed numeric(19,2), logsBloom clob(4096), miner varchar(255), nonce varchar(255), block_number numeric(19,2), parentId varchar(255), sha3Uncles varchar(255), stateRoot varchar(255), timestamp_val NUMERIC(30,0), totalDifficulty numeric(19,2), transactionsRoot varchar(255), primary key (id))
+create table CONTRACTS (address varchar(255) not null, contractJson clob(2147483647), primary key (address))
+create table EVENTS (id numeric(19,2) not null, blockId varchar(255), blockNumber numeric(19,2), contractId varchar(255), event_data varchar(10485760), logIndex numeric(19,2), name varchar(255), transactionId varchar(255), primary key (id))
+create table NODE_INFO (id bigint not null, name varchar(255), rpcUrl varchar(255), transactionManagerUrl varchar(255), primary key (id))
+create table TRANSACTIONS (id varchar(255) not null, blockId varchar(255), blockNumber numeric(19,2), contractAddress varchar(255), cumulativeGasUsed numeric(19,2), from_address varchar(255), gas numeric(19,2), gasPrice numeric(19,2), gasUsed numeric(19,2), input_data clob(2147483647), nonce varchar(255), r varchar(255), returnCode varchar(255), s varchar(255), status integer, to_address varchar(255), transactionIndex numeric(19,2), v varchar(255), trans_value numeric(27,0), primary key (id))
+create table TRANSACTIONS_EVENTS (TRANSACTION_ID varchar(255) not null, logs_id numeric(19,2) not null)
+create index block_number_idx on BLOCKS (block_number)
+create index tr_block_number_idx on TRANSACTIONS (blockNumber)
+create index tr_contract_addr_idx on TRANSACTIONS (contractAddress)
+create index tr_to_addr_idx on TRANSACTIONS (to_address)
+alter table TRANSACTIONS_EVENTS add constraint UK_lfmdcp78aghs1ncbevvecjytl unique (logs_id)
+create sequence hibernate_sequence start with 1 increment by 1
+alter table BLOCK_TRANSACTIONS add constraint FK8dgwq3i5etha5wc8m5qu9oy05 foreign key (BLOCK_ID) references BLOCKS
+alter table BLOCK_UNCLES add constraint FKhxyvoxu0pd60khi3lhelyky3m foreign key (BLOCK_ID) references BLOCKS
+alter table TRANSACTIONS_EVENTS add constraint FKs9jpuqawf0x1wjxigm6w3lfa6 foreign key (logs_id) references EVENTS
+alter table TRANSACTIONS_EVENTS add constraint FKjv4oirkvelwfuf181iqm08eq8 foreign key (TRANSACTION_ID) references TRANSACTIONS
+INSERT INTO NODE_INFO VALUES(1,'Asia','http://asia:8545',NULL)
+INSERT INTO NODE_INFO VALUES(2,'Europe','http://europe:8545',NULL)
+INSERT INTO NODE_INFO VALUES(3,'America','http://america:8545',NULL)
+INSERT INTO NODE_INFO VALUES(4,'Africa','http://africa:8545',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+/*C1*/INSERT INTO LOB_IDS VALUES(1,0,0,40)
+ALTER SEQUENCE SYSTEM_LOBS.LOB_ID RESTART WITH 2
+COMMIT
+DELETE FROM BLOCKS WHERE BLOCK_ADDR=0
+INSERT INTO BLOCKS VALUES(0,1,0)
+INSERT INTO BLOCKS VALUES(1,2147483646,0)
+DELETE FROM BLOCKS WHERE BLOCK_ADDR=0
+INSERT INTO LOBS VALUES(0,1,0,1)
+COMMIT
+DELETE FROM LOB_IDS WHERE LOB_ID=1
+INSERT INTO LOB_IDS VALUES(1,514,0,40)
+COMMIT
+/*C2*/INSERT INTO BLOCKS VALUES('0x6a6605601e17bbfbc0a199104a05f222d11da37fe2320c023394ff1e516243a2',0.00,'0x0000000000000000000000000000000000000000000000000000000000000000',3758096384.00,0.00,1,'0x0000000000000000000000000000000000000000','0x0000000000000000',0.00,'0x0000000000000000000000000000000000000000000000000000000000000000','0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347','0x8e0eda84327cb810632f7d6ab845ab2dc0c1960156beb095384eb4bd0900eeb0',0,0.00,'0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421')
+SET SCHEMA SYSTEM_LOBS
+DELETE FROM LOB_IDS WHERE LOB_ID=1
+INSERT INTO LOB_IDS VALUES(1,514,1,40)
+COMMIT

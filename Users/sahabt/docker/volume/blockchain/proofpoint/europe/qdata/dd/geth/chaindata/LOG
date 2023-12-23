@@ -1,0 +1,30 @@
+=============== Dec 23, 2023 (UTC) ===============
+18:37:02.244266 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+18:37:02.256285 db@open opening
+18:37:02.260736 version@stat F·[] S·0B[] Sc·[]
+18:37:02.263539 db@janitor F·2 G·0
+18:37:02.263850 db@open done T·7.270083ms
+18:37:02.279608 db@close closing
+18:37:02.281226 db@close done T·1.593959ms
+=============== Dec 23, 2023 (UTC) ===============
+18:37:02.549045 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+18:37:02.556379 version@stat F·[] S·0B[] Sc·[]
+18:37:02.557043 db@open opening
+18:37:02.557990 journal@recovery F·1
+18:37:02.570430 journal@recovery recovering @1
+18:37:02.578178 memdb@flush created L0@2 N·22 S·1KiB "\x04\xa7\v..\xd8\x01n,v6":"\xeef!..\x97DC,v9"
+18:37:02.609672 version@stat F·[1] S·1KiB[1KiB] Sc·[0.25]
+18:37:02.619129 db@janitor F·3 G·0
+18:37:02.619475 db@open done T·62.277292ms
+18:37:02.736339 memdb@flush N·6 S·176B
+18:37:02.741671 memdb@flush created L0@6 N·6 S·317B "Dat..ion,v25":"quo..ive,v24"
+18:37:02.743850 version@stat F·[2] S·1KiB[1KiB] Sc·[0.50]
+18:37:02.748665 memdb@flush committed F·1 T·10.861375ms
+18:37:02.749928 journal@remove removed @3
+18:37:02.845024 table@compaction range L-1 "a":"b"
+18:37:02.846726 table@compaction L0·2 -> L1·0 S·1KiB Q·29
+18:37:02.852623 table@build created L1@7 N·26 S·1KiB "\x04\xa7\v..\xd8\x01n,v6":"\xeef!..\x97DC,v9"
+18:37:02.853372 version@stat F·[0 1] S·1KiB[0B 1KiB] Sc·[0.00 0.00]
+18:37:02.854591 table@compaction committed F-1 S-223B Ke·0 D·2 T·6.542499ms
+18:37:02.855133 table@compaction range L-1 "o":"p"
+18:37:02.856548 table@remove removed @6

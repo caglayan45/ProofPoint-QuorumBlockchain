@@ -1,0 +1,17 @@
+
+L
+java:S3655"7Call "Optional#isPresent()" before accessing the value.(Ñù¸u
+M
+java:S3655&"7Call "Optional#isPresent()" before accessing the value.(êñ±
+M
+java:S3655/"7Call "Optional#isPresent()" before accessing the value.(á£…¶
+t
+java:S21425"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾
+S	java:S106"9Replace this use of System.out or System.err by a logger.(·øÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(—à’
+N	java:S106"9Replace this use of System.out or System.err by a logger.(œ±æ¥
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ï©ïƒ
+N	java:S106$"9Replace this use of System.out or System.err by a logger.(×ë˜
+S	java:S106'"9Replace this use of System.out or System.err by a logger.(”÷Èüÿÿÿÿ
+S	java:S106-"9Replace this use of System.out or System.err by a logger.(´¦ôáüÿÿÿÿ
+N	java:S1060"9Replace this use of System.out or System.err by a logger.(›§Ä¿
